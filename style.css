@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+
+body {
+  font-family: 'Lato', sans-serif;
+}
+
+.container {
+  border: solid rgb(160, 106, 45);
+  border-width: 15px;
+  height: auto;
+  margin-top: 5vw;
+}
+
+#newGame {
+  background-color: mediumorchid;
+  height: 100px;
+  margin-top: 100px;
+  margin-bottom: 20px;
+}
+
+.framed  {
+  border: solid black;
+  border-radius: 10px;
+}
+
+#roll, #hold {
+  height: 50px;
+}
+
+#totalScoreOne, #totalScoreTwo {
+  font-size: 100px;
+}
+
+.pot {
+  height:80%;
+}
