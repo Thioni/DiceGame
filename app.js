@@ -28,8 +28,24 @@ const rollADice = () => {
   } else if (diceResult > 1 && playerOneTurn === false) {
     playerTwoPot.textContent = parseInt(playerTwoPot.textContent) + diceResult
   } else {
+    let myModal = new bootstrap.Modal(document.getElementById('myModal'))
+    myModal.show()
     playerOnePot.textContent = 0
     playerTwoPot.textContent = 0
+    changePlayer()
+    playerOneTurn = !playerOneTurn
+  }
+};
+
+// CHANGEMENT DE JOUEUR
+
+const changePlayer = () => {
+  if (playerOneTurn === true) {
+    playerOne.classList.remove('active')
+    playerTwo.classList.add('active')
+  } else {
+    playerTwo.classList.remove('active')
+    playerOne.classList.add('active')
   }
 };
 

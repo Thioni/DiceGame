@@ -10,12 +10,12 @@
   </head>
 <body>
 
-  <div class="container">
+  <div class="container noHighlight">
 
 <!-- NEW GAME BUTTON -->
 
     <div class="row justify-content-center">
-      <div id="newGame" class="col-3 d-flex justify-content-center align-items-center fs-2">
+      <div id="newGame" class="col-3 d-flex justify-content-center align-items-center fs-2 framed noHighlight">
         <p class="my-2">NEW GAME</p>
       </div>
     </div>
@@ -59,10 +59,10 @@
 
       <div class="col-1">
         <div class="row row-cols-1">
-          <div id="roll" class="col text-center my-4 bg-danger">
+          <div id="roll" class="col text-center my-4 framed bg-danger noHighlight">
             <p class="my-2">ROLL</p>
           </div>
-          <div id="hold" class="col text-center my-4 bg-primary">
+          <div id="hold" class="col text-center my-4 framed bg-primary noHighlight">
             <p class="my-2">HOLD</p>
           </div>
         </div>
@@ -80,7 +80,22 @@
       </div>
 
     </div>
+    
+<!-- MODALS BOOTSTRAP -->
+    
+    <div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-body">
+            1...vous passez votre tour, pas de chance
+          </div>
+        </div>
+      </div>
+    </div>
+
+    </div>
   
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     <script src="app.js"></script>
 
 </body>
