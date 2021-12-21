@@ -2,16 +2,19 @@
 
 let playerOne = document.getElementById("playerOne");
 let playerOnePot = document.getElementById('playerOnePot');
+let playerOneTotalScore = document.getElementById('totalScoreOne');
 
 // VARIABLES JOUEUR 2
 let playerTwo = document.getElementById("playerTwo");
 let playerTwoPot = document.getElementById('playerTwoPot');
+let playerTwoTotalScore = document.getElementById('totalScoreTwo');
 
 let playerOneTurn = true;
 
 // VARIABLE D'INTERFACE
 
 let roll = document.getElementById('roll');
+let hold = document.getElementById('hold');
 
 // FACES DU DÉ
 
@@ -37,6 +40,28 @@ const rollADice = () => {
   }
 };
 
+// HOLD
+
+const addToTotal = () => {
+  if (playerOneTurn == true) {
+  playerOneTotalScore.textContent = parseInt(playerOneTotalScore.textContent) + parseInt(playerOnePot.textContent)
+  playerOneTotalScore.textContent >= 100 ? winner(): changePlayer();
+  playerOneTurn = !playerOneTurn
+  playerOnePot.textContent = 0;
+  } else {
+    playerTwoTotalScore.textContent = parseInt(playerTwoTotalScore.textContent) + parseInt(playerTwoPot.textContent)
+    playerTwoTotalScore.textContent >= 100 ? winner(): changePlayer();
+    playerOneTurn = !playerOneTurn
+    playerTwoPot.textContent = 0;
+  }
+};
+
+// WINNER
+
+const winner = () => {
+console.log("winner winner chicken diner")
+};
+
 // CHANGEMENT DE JOUEUR
 
 const changePlayer = () => {
@@ -49,6 +74,8 @@ const changePlayer = () => {
   }
 };
 
+
 // EVENTS
 
 roll.addEventListener('click', rollADice);
+hold.addEventListener('click', addToTotal);
