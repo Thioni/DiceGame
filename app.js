@@ -59,7 +59,13 @@ const addToTotal = () => {
 // WINNER
 
 const winner = () => {
-console.log("winner winner chicken diner")
+  if (playerOneTotalScore.textContent >= 100) {
+    let playerOneWin = new bootstrap.Modal(document.getElementById('playerOneWin'))
+    playerOneWin.show()
+  } else { 
+    let playerTwoWin = new bootstrap.Modal(document.getElementById('playerTwoWin'))
+    playerTwoWin.show()
+  }
 };
 
 // CHANGEMENT DE JOUEUR
