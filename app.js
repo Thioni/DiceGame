@@ -5,6 +5,7 @@ let playerOnePot = document.getElementById('playerOnePot');
 let playerOneTotalScore = document.getElementById('totalScoreOne');
 
 // VARIABLES JOUEUR 2
+
 let playerTwo = document.getElementById("playerTwo");
 let playerTwoPot = document.getElementById('playerTwoPot');
 let playerTwoTotalScore = document.getElementById('totalScoreTwo');
@@ -15,6 +16,7 @@ let playerOneTurn = true;
 
 let roll = document.getElementById('roll');
 let hold = document.getElementById('hold');
+let newGame = document.getElementById('newGame');
 
 // FACES DU DÉ
 
@@ -33,10 +35,7 @@ const rollADice = () => {
   } else {
     let myModal = new bootstrap.Modal(document.getElementById('myModal'))
     myModal.show()
-    playerOnePot.textContent = 0
-    playerTwoPot.textContent = 0
     changePlayer()
-    playerOneTurn = !playerOneTurn
   }
 };
 
@@ -46,13 +45,10 @@ const addToTotal = () => {
   if (playerOneTurn == true) {
   playerOneTotalScore.textContent = parseInt(playerOneTotalScore.textContent) + parseInt(playerOnePot.textContent)
   playerOneTotalScore.textContent >= 100 ? winner(): changePlayer();
-  playerOneTurn = !playerOneTurn
-  playerOnePot.textContent = 0;
   } else {
     playerTwoTotalScore.textContent = parseInt(playerTwoTotalScore.textContent) + parseInt(playerTwoPot.textContent)
     playerTwoTotalScore.textContent >= 100 ? winner(): changePlayer();
-    playerOneTurn = !playerOneTurn
-    playerTwoPot.textContent = 0;
+
   }
 };
 
@@ -62,9 +58,11 @@ const winner = () => {
   if (playerOneTotalScore.textContent >= 100) {
     let playerOneWin = new bootstrap.Modal(document.getElementById('playerOneWin'))
     playerOneWin.show()
+    startNewGame()
   } else { 
     let playerTwoWin = new bootstrap.Modal(document.getElementById('playerTwoWin'))
     playerTwoWin.show()
+    startNewGame()
   }
 };
 
@@ -74,14 +72,30 @@ const changePlayer = () => {
   if (playerOneTurn === true) {
     playerOne.classList.remove('active')
     playerTwo.classList.add('active')
+    playerOneTurn = !playerOneTurn
+    playerOnePot.textContent = 0;
   } else {
     playerTwo.classList.remove('active')
     playerOne.classList.add('active')
+    playerOneTurn = !playerOneTurn
+    playerTwoPot.textContent = 0;
   }
 };
 
+// NEW GAME
+
+const startNewGame = () => {
+  playerOnePot.textContent = 0
+  playerTwoPot.textContent = 0
+  playerOneTotalScore.textContent = 0
+  playerTwoTotalScore.textContent = 0
+  playerOneTurn = true
+  playerTwo.classList.remove('active')
+  playerOne.classList.add('active')
+};
 
 // EVENTS
 
 roll.addEventListener('click', rollADice);
 hold.addEventListener('click', addToTotal);
+newGame.addEventListener('click', startNewGame);
