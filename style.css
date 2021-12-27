@@ -23,8 +23,12 @@ body {
   border-radius: 10px;
 }
 
-#roll, #hold {
-  height: 50px;
+#roll {
+  background-color: #dc3545;
+}
+
+#hold {
+  background-color: #0d6efd ;
 }
 
 #totalScoreOne, #totalScoreTwo {
@@ -43,4 +47,9 @@ body {
 
 .noHighlight {
   user-select: none;
+}
+
+#newGame:active, .pot:active, #roll:active, #hold:active {
+  background-color:rgb(63, 63, 63);
+  color: white;
 }

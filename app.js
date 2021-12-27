@@ -33,8 +33,8 @@ const rollADice = () => {
   } else if (diceResult > 1 && playerOneTurn === false) {
     playerTwoPot.textContent = parseInt(playerTwoPot.textContent) + diceResult
   } else {
-    let myModal = new bootstrap.Modal(document.getElementById('myModal'))
-    myModal.show()
+    let turnover = new bootstrap.Modal(document.getElementById('turnover'))
+    turnover.show()
     changePlayer()
   }
 };
